@@ -436,8 +436,8 @@ class StorySparkApp {
         
         document.getElementById('location-text').textContent = locationNames[this.placeType];
         
-        // Re-populate ideas
-        this.populateIdeas();
+        // Show story ideas
+        this.showStoryIdeas();
         
         // Show success message
         const notification = document.createElement('div');
@@ -525,11 +525,9 @@ class StorySparkApp {
             
             // Fallback: Show test mode after 3 seconds if location fails
             setTimeout(() => {
-                if (!this.placeType) {
-                    console.log('Falling back to test mode');
-                    this.testMode = true;
-                    this.cycleTestLocation();
-                }
+                console.log('Falling back to test mode');
+                this.testMode = true;
+                this.cycleTestLocation();
             }, 3000);
         }
     }
