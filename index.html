@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Spark - Location-Based Video Ideas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">Story Spark</h1>
+                <div class="location-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="location-text">Detecting location...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Location Status -->
+            <div class="location-status" id="location-status">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <p>Finding your perfect story location...</p>
+            </div>
+
+            <!-- Story Ideas Container -->
+            <div class="story-ideas" id="story-ideas" style="display: none;">
+                <h2 class="section-title">Your Story Ideas</h2>
+                <div class="ideas-grid" id="ideas-grid">
+                    <!-- Ideas will be populated here -->
+                </div>
+            </div>
+
+            <!-- Recording Section -->
+            <div class="recording-section" id="recording-section" style="display: none;">
+                <div class="record-button-container">
+                    <button class="record-button" id="record-button">
+                        <i class="fas fa-video"></i>
+                        <span>Start Recording</span>
+                    </button>
+                </div>
+                <div class="recording-status" id="recording-status" style="display: none;">
+                    <div class="recording-indicator">
+                        <div class="pulse-dot"></div>
+                        <span>Recording...</span>
+                    </div>
+                    <button class="stop-button" id="stop-button">
+                        <i class="fas fa-stop"></i>
+                        Stop
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Video Preview Modal -->
+        <div class="modal" id="video-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Video Preview</h3>
+                    <button class="close-button" id="close-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="video-preview" id="video-preview">
+                        <!-- Video preview will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
