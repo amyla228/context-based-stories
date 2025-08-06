@@ -1,4 +1,5 @@
 // Story Spark App - Location-Based Video Ideas
+// Updated: Added fallback mode for better mobile experience
 class StorySparkApp {
     constructor() {
         this.currentLocation = null;
