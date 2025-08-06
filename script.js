@@ -706,8 +706,14 @@ class StorySparkApp {
         for (let index = 0; index < ideas.length; index++) {
             const idea = ideas[index];
             
-            // Get YouTube Shorts for this idea
-            const shorts = await this.getRelevantShortsForIdea(idea);
+            // Get YouTube Shorts for this idea (with error handling)
+            let shorts = [];
+            try {
+                shorts = await this.getRelevantShortsForIdea(idea);
+            } catch (error) {
+                console.error('Error fetching YouTube Shorts:', error);
+                // Continue without YouTube Shorts if API fails
+            }
             
             const ideaCard = document.createElement('div');
             ideaCard.className = 'idea-card';
