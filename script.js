@@ -507,7 +507,7 @@ class StorySparkApp {
         } catch (error) {
             console.error('Error detecting location:', error);
             
-            // Show detailed error message
+            // Show detailed error message with fallback
             let errorMessage = 'Unable to detect your location. ';
             
             if (error.code === 1) {
@@ -521,6 +521,15 @@ class StorySparkApp {
             }
             
             this.showError(errorMessage);
+            
+            // Fallback: Show test mode after 3 seconds if location fails
+            setTimeout(() => {
+                if (!this.placeType) {
+                    console.log('Falling back to test mode');
+                    this.testMode = true;
+                    this.cycleTestLocation();
+                }
+            }, 3000);
         }
     }
 
