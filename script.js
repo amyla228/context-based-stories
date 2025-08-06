@@ -421,8 +421,8 @@ class StorySparkApp {
 
     cycleTestLocation() {
         const placeTypes = ['coffee_shop', 'gym', 'home', 'park', 'shopping_mall', 'restaurant'];
-        this.testLocationIndex = (this.testLocationIndex + 1) % placeTypes.length;
-        this.placeType = placeTypes[this.testLocationIndex];
+        // Use the first test location for fallback
+        this.placeType = placeTypes[0]; // Always use first location for fallback
         
         // Update location text
         const locationNames = {
@@ -523,12 +523,10 @@ class StorySparkApp {
             
             this.showError(errorMessage);
             
-            // Fallback: Show test mode after 3 seconds if location fails
-            setTimeout(() => {
-                console.log('Falling back to test mode');
-                this.testMode = true;
-                this.cycleTestLocation();
-            }, 3000);
+            // Fallback: Show test mode immediately if location fails
+            console.log('Falling back to test mode immediately');
+            this.testMode = true;
+            this.cycleTestLocation();
         }
     }
 
